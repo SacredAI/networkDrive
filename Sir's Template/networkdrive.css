@@ -1,0 +1,149 @@
+/* ------------- */
+/* FORM CONTROLS */
+/* ------------- */
+input, textarea, select {
+    padding: 5px; 
+    border: 2px solid #CCBCA4; 
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: white;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: slateblue;
+    outline: none;
+}
+
+/* ----------- */
+/*  MAIN FONT  */
+/* ----------- */
+
+body {
+  font-size: calc(16px + 1vw);
+  line-height: calc(1.1em + 0.5vw);
+  font-family: 'Source Code Pro';
+  color: #2a2b2c;
+  margin: 0;
+  background-color: #524676;
+}
+
+/* ----------- */
+/*    LOGO     */
+/* ----------- */
+
+#logo{
+    width: calc(16px + 1vw);
+    height: auto;
+    padding-right: 20px;
+    float: left;
+}
+
+/* ----------- */
+/*    TABLE    */
+/* ----------- */
+
+table {
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 1px solid #2a2b2c;
+    padding: 3px;
+}
+
+table th {
+    background-color: #cdc59d;
+}
+
+/* ----------- */
+/*    LINKS    */
+/* ----------- */
+
+.navblock a{
+   text-decoration: none;
+   color: #2a2b2c;
+   display: block;   
+}
+
+.navblock a:hover{
+   color: #1B1BB1;
+}
+
+.navinline a{
+   text-decoration: none;
+   color: #2a2b2c;
+   display: inline; 
+}
+
+.navinline a:hover{
+   color: #1B1BB1;
+}
+
+/* ----------- */
+/* GRID LAYOUT */
+/* ----------- */
+
+#layout{
+    display: grid;
+    grid-template-areas:
+        'top top top'
+        'tab tab tab'
+        'left middle right'
+        'bottom bottom bottom';
+    width: 90vw; /* 90% of viewport width */
+    margin: 0 auto; /* centres the element */
+}
+
+/* stack containers when on small screen: */
+@media screen and (max-width: 640px) {
+    #layout{
+        display: grid;
+        grid-template-areas:
+            'top'
+            'tab'
+            'left'
+            'middle'
+            'right'
+            'bottom';
+    }
+}
+
+#top{
+    background-color: #524676;
+    grid-area: top;
+    color: #B8AFD2;
+    padding: 5px;
+}
+
+#tab{
+    background-color: #9186b6;
+    grid-area: tab;
+    color: #2a2b2c;
+    padding: 5px;
+}
+
+#left{
+    background-color: #AC9F5C;
+    grid-area: left;
+    padding: 5px;
+}
+
+#middle{
+    background-color: #E4DDBA;
+    grid-area: middle;
+    min-width: 50vw;
+    padding: 5px;
+}
+
+#right{
+    background-color: #AC9F5C;
+    grid-area: right;
+    padding: 5px;
+}
+
+#bottom{
+    background-color: #9186b6;
+    grid-area: bottom;
+    color: #2a2b2c;
+    padding: 5px;
+}

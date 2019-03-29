@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NetDrive</title>
+    <link type="text/css" href="{{ url_for( 'static', filename='style.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
+</head>
+<body>
+    <img src="{{url_for( 'static/assets', filename='networkdrive.png')}}" alt="Network Drive" class="netimg">
+
+    <!--TODO: Make this a Button that brings up a form/different page-->
+    <form name="login" method="post" action="/auth">
+        <input type="text" placeholder="Enter Username" name="user" required>
+        <input type="password" placeholder="Enter Password" name="pass" required>
+        <input type="submit" value="Login">
+    </form>
+
+</body>
+</html>
