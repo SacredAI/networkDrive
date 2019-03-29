@@ -1,4 +1,9 @@
 * {
+    --color-1: #E2474B;
+    --color-2: #2D3A56;
+    --color-3: #406D96;
+    --color-4: #A8D0DA;
+    --color-5: #D8E8EB;
     margin: 0;
     padding: 0;
     font-size: calc(16px + 1vw);
@@ -7,10 +12,93 @@
 }
 
 body {
+    background-color: var(--color-2);
+}
+
+/*
+
+    GRID
+
+*/
+
+.logingrid {
     display: grid;
-    grid-template-areas:
-    'header header header'
-    'tab tab tab'
-    'left middle right'
+    grid-template-areas: 'top top top' 'tabt tabt tabt' 'left middle right' 'tabb tabb tabb'
     'bottom bottom bottom';
+    width: 90vw; /* 90% of viewport width */
+    margin: 0 auto; /* centres the element */
+}
+
+@media screen and (max-width: 640px) {
+    .logingrid {
+        display: grid;
+        grid-template-areas: 'top' 'tabt' 'left' 'middle' 'right' 'tabb' 'bottom';
+    }
+}
+
+
+#logo {
+    width: calc(30px + 1vw);
+    height: auto;
+    float: left;
+    text-align: left;
+}
+
+#top {
+    background-color: var(--color-2);
+    grid-area: top;
+    color: var(--color-1);
+    padding: 5px;
+}
+
+#tabt {
+    background-color: var(--color-3);
+    grid-area: tabt;
+    color: var(--color-2);
+    padding: 5px;
+}
+
+#left {
+    background-color: var(--color-1);
+    grid-area: left;
+    padding: 5px;
+}
+
+#middle {
+    background-color: var(--color-4);
+    grid-area: middle;
+    min-width: 50vw;
+    padding: 5px;
+    text-align: center;
+}
+
+#right {
+    background-color: var(--color-1);
+    grid-area: right;
+    padding: 5px;
+}
+
+#tabb {
+    background-color: var(--color-3);
+    grid-area: tabb;
+    color: var(--color-2);
+    padding: 5px;
+}
+
+#bottom {
+    background-color: var(--color-5);
+    grid-area: bottom;
+    color: var(--color-2);
+    padding: 5px;
+    text-align: center;
+}
+
+.loginform {
+    display: inline-block;
+    text-align: left;
+}
+
+#login {
+    text-align: center;
+    margin-left: 130px;
 }

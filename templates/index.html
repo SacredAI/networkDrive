@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>NetDrive</title>
-    <link type="text/css" href="{{ url_for( 'static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css' ) }}">
     <link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
+    <link rel="icon" href="{{ url_for( 'static', filename='assets/networkdrive.ico') }}">
 </head>
 <body>
-    <img src="{{url_for( 'static/assets', filename='networkdrive.png')}}" alt="Network Drive" class="netimg">
-
+<div class="logingrid">
+    <div id="top"><img src="{{ url_for( 'static', filename='assets/networkdrive.png') }}" id="logo">Network Drive</div>
+    <div id="tabt"></div>
+    <div id="left"></div>
+    <div id="middle">
     <!--TODO: Make this a Button that brings up a form/different page-->
-    <form name="login" method="post" action="/auth">
-        <input type="text" placeholder="Enter Username" name="user" required>
-        <input type="password" placeholder="Enter Password" name="pass" required>
-        <input type="submit" value="Login">
+        {% if Failed == True %}
+            <h1 style="color: red"> Incorrect Username or Password</h1>
+        {% endif %}
+        <form name="login" method="post" action="/auth" class="loginform">
+            <input type="text" placeholder="Enter Username" name="user" required> <br>
+            <input type="password" placeholder="Enter Password" name="passw" required><br>
+            <input type="submit" value="Login" id="login">
     </form>
+    </div>
+    <div id="right"></div>
+    <div id="tabb"></div>
+    <div id="bottom">
+        &copy; Alex Donnellan
+    </div>
+</div>
 
 </body>
 </html>
