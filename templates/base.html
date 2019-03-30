@@ -11,12 +11,11 @@
     {% endblock %}
 </head>
 <body>
-<div id="top"><img src="{{ url_for( 'static', filename='assets/networkdrive.png') }}" id="logo">Network
-    Drive{% block top %}{% endblock %}</div>
-<div id="tabt">{% block tabt %}{% endblock %}</div>
-<div id="left">{% block left %}{% endblock %}</div>
-<div id="middle">{% block middle %}{% endblock %}</div>
-<div id="tabb">{% block tabb %}{% endblock %}</div>
-<div id="bottom">&copy; Alex Donnellan{% block top %}{% endblock %}</div>
+<div id="header"><img src="{{ url_for( 'static', filename='assets/networkdrive.png') }}" id="logo">Network
+    Drive{% block header %}{% endblock %}</div>
+<div id="tab">{% block tab %}{% endblock %}</div>
+<div id="nav">{% block nav %}{% endblock %}</div>
+<div id="content">{% block content %}{% endblock %}</div>
+<div id="setting">{% block setting %}{% endblock %}</div>
 </body>
 </html>
