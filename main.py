@@ -1,29 +1,34 @@
-import flask as f
-import json
-import os
-from passlib.hash import sha256_crypt
-from werkzeug.utils import secure_filename
+try:
+    import flask as f
+    import json
+    import os
+    from passlib.hash import sha256_crypt
+    from werkzeug.utils import secure_filename
+except ImportError:
+    print("You forgot to install one of the packages ")
 
 app = f.Flask(__name__)
-app.config["UPLOAD_FOLDER"] = "static/store"
+app.config["UPLOAD_FOLDER"] = "static/files"
+app.secret_key = b',chks\x9f|\x08\x94c-\x94\x90\xa5\xa2\xbd'
 
 
 # <editor-fold desc="Authorisation">
 @app.route("/")
 def preauth():
-    return f.render_template("index.html", failed=False)
+    return f.render_template("index.html", Failed=False)
 
 
 @app.route("/auth", methods=["POST"])
 def auth():
-    if authcheck(f.request.form["user"], f.request.form["passw"]):
-        return f.render_template_string("Yes")
+    if auth_check(f.request.form["user"], f.request.form["passw"]):
+        f.session['user'] = f.request.form['user']
+        return f.render_template("network/netdrive.html")
     else:
-        return f.render_template("index.html", failed=True)
+        return f.render_template("index.html", Failed=True)
 
 
 # user check
-def authcheck(username, password):
+def auth_check(username, password):
     with open('static/data/accounts.json') as r:
         data = json.load(r)
         for u in data['accounts']:
@@ -34,7 +39,7 @@ def authcheck(username, password):
 
 
 # Setup Account for Access
-def accountcreate(username, password):
+def account_create(username, password):
     data = {}
     with open('static/data/accounts.json') as r:
         data = json.load(r)
@@ -69,9 +74,12 @@ def dated_url_for(endpoint, **values):
                                      endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return f.url_for(endpoint, **values)
-
-
 # </editor-fold>
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return f.render_template("codes/404.html"), 404
 
 
 app.run(debug=True)
