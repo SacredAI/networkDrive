@@ -34,7 +34,7 @@ def auth_check(username, password):
         for u in data['accounts']:
             if u['username'] == username:
                 if sha256_crypt.verify(password, u['password']):
-                    return True
+                    return Truel
     return False
 
 
