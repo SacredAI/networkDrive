@@ -2,14 +2,20 @@
   <dictionary name="adonnellan">
     <words>
       <w>curfol</w>
+      <w>curuser</w>
       <w>datafolder</w>
       <w>datfol</w>
+      <w>htmlcov</w>
       <w>jsonl</w>
       <w>navblock</w>
       <w>navinline</w>
       <w>netdrive</w>
       <w>networkdrive</w>
       <w>preauth</w>
+      <w>pycache</w>
+      <w>pytest</w>
+      <w>tblname</w>
+      <w>venv</w>
     </words>
   </dictionary>
 </component>
