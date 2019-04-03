@@ -2,10 +2,8 @@
     "accounts": {
         "admin": {
             "username": "admin",
-            "password": "$5$rounds=535000$Dt/qs19aynKndCH3$tkr1kUZuxXVZzPIrdWyk2GIjOsxGdw5Kftcioq7uyc9",
-            "perms": [
-                "*"
-            ]
+          "password": "$5$rounds=535000$9uTytcJFkIT08fqO$1oEW28HjucBqXK8ucbEnONiCZBKicJJur/3BgpIu5z3",
+          "perms": "*"
         }
     }
 }
