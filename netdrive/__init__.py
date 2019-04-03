@@ -1,13 +1,18 @@
 # TODO: Split file up into classes and into respective modules files
 import flask as f
 import os
-import netdrive.util.db as db
 import netdrive.modules.auth as auth
 from netdrive.util import url_check
 
 app = f.Flask(__name__)
 app.config.from_object('config')
 app.secret_key = app.config["SECRET_KEY"]
+
+# <editor-fold desc="Description">
+app.register_blueprint(auth.auth_bp, url_prefix='/auth')
+
+
+# </editor-fold>
 
 
 @app.route("/")
@@ -35,10 +40,4 @@ def dated_url_for(endpoint, **values):
 @app.errorhandler(404)
 def page_not_found(error):
     return f.render_template("codes/404.html"), 404
-
-
 # </editor-fold>
-
-
-app.register_blueprint(auth.auth_bp)
-# print(sha256_crypt.verify(password, password2))

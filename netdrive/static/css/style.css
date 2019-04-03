@@ -102,3 +102,40 @@ body {
     text-align: center;
     margin-left: 130px;
 }
+
+/*---------
+    Base
+-----------*/
+
+.grid {
+    display: grid;
+    grid-template-areas: 'header header header' 'nav tab setting' 'nav content setting';
+    width: 90vw;
+}
+
+#header {
+    grid-area: header;
+    padding: 5px;
+}
+
+#tab {
+    grid-area: tab;
+}
+
+#nav {
+    grid-area: nav;
+}
+
+#content {
+    grid-area: content;
+}
+
+#setting {
+    grid-area: setting;
+}
+
+#404heading {
+    color: var(--color-1);
+    text-align: center;
+    font-size: calc(30px + 2vw);
+}

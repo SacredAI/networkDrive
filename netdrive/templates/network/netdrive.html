@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Network Drive</title>
-</head>
-<body>
-<header>
-    {#TODO: Connect to template and build drive#}
-</header>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block head %}
+    <title>{% block title %}Drive{% endblock %}</title>
+{% endblock %}
+{% block body %}
+    {% block header %}{% endblock %}
+    {% block tab %}{% endblock %}
+    {% block nav %}{% endblock %}
+    {% block content %}<h1 id="404heading"> Sorry! We couldn't find that page!</h1>{% endblock %}
+    {% block setting %}{% endblock %}
+{% endblock %}
