@@ -1,8 +1,17 @@
+
 from . import read_data
 import json
 
 
 def url_check(user, adminpg):
+    '''
+    :param user: The username of the client trying to load the page
+    :type user: str or None
+    :param adminpg: Does the page require elevated privileges
+    :type adminpg: bool
+    :return: Failed or passed
+    :rtype: bool
+    '''
     if user is None:
         return False
     elif adminpg:

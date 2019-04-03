@@ -16,6 +16,12 @@ def login():
 
 
 def auth_check(username, password):
+    '''
+    :param str username: The username used during the login process
+    :param str password: The password used during the login process
+    :return: returns a failed or passed result
+    :rtype: boolean
+    '''
     data = read_data('accounts')
     for u in data:
         if u['username'] == username:
