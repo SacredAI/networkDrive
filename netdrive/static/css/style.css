@@ -111,11 +111,13 @@ body {
     display: grid;
     grid-template-areas: 'header header header' 'nav tab setting' 'nav content setting';
     width: 90vw;
+    margin: 0 auto;
 }
 
 #header {
     grid-area: header;
     padding: 5px;
+    margin: 0;
 }
 
 #tab {

@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f7e3f0f-4798-4d8e-be9b-43db1e2e6318" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/adonnellan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/adonnellan.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/netdrive/modules/network/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/netdrive/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/netdrive/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/netdrive/modules/auth/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/netdrive/modules/auth/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/netdrive/modules/auth/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/netdrive/modules/auth/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/netdrive/util/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/netdrive/util/data/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/netdrive/util/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/netdrive/util/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/netdrive/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/netdrive/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/netdrive/templates/network/netdrive.html" beforeDir="false" afterPath="$PROJECT_DIR$/netdrive/templates/network/netdrive.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +30,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/netdrive/templates/network/netdrive.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/netdrive/templates/codes/404.html">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
-              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -39,8 +49,8 @@
         <entry file="file://$PROJECT_DIR$/netdrive/__init__.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="920">
-                <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+              <first_editor relative-caret-position="483">
+                <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
                 <folding>
                   <element signature="e#69#86#0" expanded="true" />
                 </folding>
@@ -50,36 +60,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netdrive/modules/auth/login.py">
-          <provider selected="true" editor-type-id="live-pycharm">
-            <state>
-              <first_editor relative-caret-position="207">
-                <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-                <folding>
-                  <element signature="e#0#17#0" expanded="true" />
-                </folding>
-              </first_editor>
-              <second_editor relative-caret-position="23">
-                <caret line="1" selection-start-line="1" selection-end-line="1" />
-              </second_editor>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/netdrive/static/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="116" column="9" lean-forward="true" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/netdrive/modules/auth/__init__.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/netdrive/modules/network/__init__.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
               <first_editor relative-caret-position="138">
-                <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-                <folding>
-                  <element signature="e#0#17#0" expanded="true" />
-                </folding>
+                <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
               </first_editor>
-              <second_editor relative-caret-position="23">
-                <caret line="1" selection-start-line="1" selection-end-line="1" />
-              </second_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -140,14 +137,15 @@
         <option value="$PROJECT_DIR$/netdrive/util/util.py" />
         <option value="$PROJECT_DIR$/netdrive/templates/base.html" />
         <option value="$PROJECT_DIR$/netdrive/templates/codes/404.html" />
-        <option value="$PROJECT_DIR$/netdrive/static/css/style.css" />
-        <option value="$PROJECT_DIR$/netdrive/templates/network/netdrive.html" />
         <option value="$PROJECT_DIR$/netdrive/templates/index.html" />
         <option value="$PROJECT_DIR$/netdrive/util/data/data.json" />
         <option value="$PROJECT_DIR$/netdrive/util/db.py" />
         <option value="$PROJECT_DIR$/netdrive/__init__.py" />
-        <option value="$PROJECT_DIR$/netdrive/modules/auth/login.py" />
+        <option value="$PROJECT_DIR$/netdrive/modules/network/__init__.py" />
         <option value="$PROJECT_DIR$/netdrive/modules/auth/__init__.py" />
+        <option value="$PROJECT_DIR$/netdrive/modules/auth/login.py" />
+        <option value="$PROJECT_DIR$/netdrive/templates/network/netdrive.html" />
+        <option value="$PROJECT_DIR$/netdrive/static/css/style.css" />
       </list>
     </option>
   </component>
@@ -201,20 +199,34 @@
               <item name="networkDrive" type="b2602c69:ProjectViewProjectNode" />
               <item name="networkDrive" type="462c0819:PsiDirectoryNode" />
               <item name="netdrive" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="networkDrive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="networkDrive" type="462c0819:PsiDirectoryNode" />
+              <item name="netdrive" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="networkDrive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="networkDrive" type="462c0819:PsiDirectoryNode" />
+              <item name="netdrive" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="networkDrive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="networkDrive" type="462c0819:PsiDirectoryNode" />
+              <item name="netdrive" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="networkDrive" type="b2602c69:ProjectViewProjectNode" />
               <item name="networkDrive" type="462c0819:PsiDirectoryNode" />
               <item name="netdrive" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="networkDrive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="networkDrive" type="462c0819:PsiDirectoryNode" />
-              <item name="netdrive" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="codes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="networkDrive" type="b2602c69:ProjectViewProjectNode" />
@@ -247,10 +259,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Desktop Files\adonnellan\Desktop\School\2019\Unit 1\Digital Solutions\networkDrive\netdrive\templates" />
+      <recent name="D:\Desktop Files\adonnellan\Desktop\School\2019\Unit 1\Digital Solutions\networkDrive\netdrive\modules\network\templates" />
       <recent name="D:\Desktop Files\adonnellan\Desktop\School\2019\Unit 1\Digital Solutions\networkDrive\netdrive\util" />
       <recent name="D:\Desktop Files\adonnellan\Desktop\School\2019\Unit 1\Digital Solutions\networkDrive\netdrive" />
       <recent name="D:\Desktop Files\adonnellan\Desktop\School\2019\Unit 1\Digital Solutions\networkDrive\netdrive\modules\auth" />
-      <recent name="D:\Desktop Files\adonnellan\Desktop\School\2019\Unit 1\Digital Solutions\networkDrive\netdrive\modules\util" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -297,7 +309,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -360,7 +372,9 @@
       <workItem from="1554265339851" duration="116000" />
       <workItem from="1554265505613" duration="36000" />
       <workItem from="1554265580178" duration="820000" />
-      <workItem from="1554330006480" duration="3990000" />
+      <workItem from="1554330006480" duration="4115000" />
+      <workItem from="1554334438268" duration="341000" />
+      <workItem from="1554339419356" duration="1956000" />
     </task>
     <task id="LOCAL-00001" summary="web">
       <created>1553842596903</created>
@@ -411,11 +425,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554266343559</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Authorization&#10;Database file Improvements">
+      <created>1554334149083</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1554334149083</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48987000" />
+    <option name="totallyTimeSpent" value="51409000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -430,12 +451,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.16689008" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.17091152" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50089765" side_tool="true" weight="0.1575067" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952926" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27389443" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27389443" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -489,7 +510,8 @@
     <MESSAGE value="splitting into modules&#10;data work" />
     <MESSAGE value="Documentation for Json data and util&#10;Fixed dynamic Json storage now should work all the time" />
     <MESSAGE value="Templates&#10;BluePrints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Templates&#10;BluePrints" />
+    <MESSAGE value="Authorization&#10;Database file Improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Authorization&#10;Database file Improvements" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
@@ -499,7 +521,7 @@
     <SUITE FILE_PATH="coverage/networkDrive$main.coverage" NAME="main Coverage Results" MODIFIED="1553929287192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/networkDrive$sphinx_task_in_.coverage" NAME="sphinx task in  Coverage Results" MODIFIED="1554253181011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/networkDrive$testing.coverage" NAME="testing Coverage Results" MODIFIED="1553930115348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/networkDrive$Flask__run_py_app_.coverage" NAME="Flask (run.py:app) Coverage Results" MODIFIED="1554334080518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/networkDrive$Flask__run_py_app_.coverage" NAME="Flask (run.py:app) Coverage Results" MODIFIED="1554341395219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JavaScript-modules-diagram/D:/Desktop Files/adonnellan/Desktop/School/2019/Unit 1/Digital Solutions/Network Drive/store">
@@ -554,14 +576,6 @@
     <entry file="file://$PROJECT_DIR$/netdrive/modules/__init__.py" />
     <entry file="file://$PROJECT_DIR$/netdrive/util/error_handler.py" />
     <entry file="file://$PROJECT_DIR$/netdrive/util/__init__.py">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
           <first_editor>
@@ -572,18 +586,19 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sir's Template/networkdrive.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="74">
           <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netdrive/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="132" column="23" lean-forward="true" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -594,14 +609,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netdrive/templates/codes/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="23" lean-forward="true" selection-end-line="11" selection-end-column="14" />
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
@@ -610,38 +624,32 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
           <first_editor />
           <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state>
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netdrive/util/util.py">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
           <first_editor relative-caret-position="11">
             <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="33" />
           </first_editor>
           <second_editor relative-caret-position="-161" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -680,11 +688,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netdrive/util/db.py">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
           <first_editor relative-caret-position="264">
@@ -695,24 +698,24 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netdrive/templates/network/netdrive.html">
+    <entry file="file://$PROJECT_DIR$/netdrive/templates/codes/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netdrive/modules/auth/login.py">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/netdrive/modules/auth/__init__.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="207">
-            <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <first_editor relative-caret-position="161">
+            <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
             <folding>
               <element signature="e#0#17#0" expanded="true" />
             </folding>
@@ -722,17 +725,54 @@
           </second_editor>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netdrive/__init__.py">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="69">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netdrive/modules/auth/login.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="920">
-            <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+          <first_editor relative-caret-position="115">
+            <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+            <folding>
+              <element signature="e#0#17#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor relative-caret-position="23">
+            <caret line="1" selection-start-line="1" selection-end-line="1" />
+          </second_editor>
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netdrive/modules/network/__init__.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor relative-caret-position="138">
+            <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netdrive/templates/network/netdrive.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netdrive/__init__.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor relative-caret-position="483">
+            <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
             <folding>
               <element signature="e#69#86#0" expanded="true" />
             </folding>
@@ -740,24 +780,16 @@
           <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netdrive/modules/auth/__init__.py">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="-4">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state>
-          <first_editor relative-caret-position="138">
-            <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-            <folding>
-              <element signature="e#0#17#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor relative-caret-position="23">
-            <caret line="1" selection-start-line="1" selection-end-line="1" />
-          </second_editor>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netdrive/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="116" column="9" lean-forward="true" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
         </state>
       </provider>
     </entry>

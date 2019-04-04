@@ -1,7 +1,7 @@
 # TODO: Split file up into classes and into respective modules files
 import flask as f
 import os
-import netdrive.modules.auth as auth
+from netdrive.modules import auth, network
 from netdrive.util import url_check
 
 app = f.Flask(__name__)
@@ -10,13 +10,12 @@ app.secret_key = app.config["SECRET_KEY"]
 
 # <editor-fold desc="Description">
 app.register_blueprint(auth.auth_bp, url_prefix='/auth')
-
-
+app.register_blueprint(network.net_bp, url_prefix='/network')
 # </editor-fold>
 
 
 @app.route("/")
-def preauth():
+def index():
     return f.render_template("index.html", Failed=False)
 
 

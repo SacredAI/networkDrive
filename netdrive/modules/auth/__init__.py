@@ -5,5 +5,5 @@ auth_bp = f.Blueprint('auth', __name__)
 
 
 @auth_bp.route('/login', methods=['POST'])
-def loginroute():
+def login_route():
     return login()

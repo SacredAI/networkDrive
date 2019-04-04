@@ -6,7 +6,7 @@ from passlib.hash import sha256_crypt
 def login():
     if auth_check(f.request.form["user"], f.request.form["passw"]) is True:
         f.g.user = f.request.form["user"]
-        return f.render_template("network/netdrive.html")
+        return f.redirect(f.url_for('network.index'))
     else:
         return f.render_template("index.html", Failed=True)
 
