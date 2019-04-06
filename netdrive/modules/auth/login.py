@@ -5,7 +5,7 @@ from passlib.hash import sha256_crypt
 
 def login():
     if auth_check(f.request.form["user"], f.request.form["passw"]) is True:
-        f.g.user = f.request.form["user"]
+        f.session['user'] = f.request.form["user"]
         return f.redirect(f.url_for('network.index'))
     else:
         return f.render_template("index.html", Failed=True)
@@ -21,9 +21,7 @@ def auth_check(username, password):
     :rtype: boolean
     '''
     data = read_data('accounts', username)
-    for u in data.keys():
-        if data[u] == username:
-            if sha256_crypt.verify(str(password), str(data['password'])):
-                return True
-    return False
-
+    try:
+        return sha256_crypt.verify(password, data.get('password'))
+    except KeyError or TypeError:
+        return False

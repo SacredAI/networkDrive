@@ -2,6 +2,8 @@
   <dictionary name="adonnellan">
     <words>
       <w>adminpg</w>
+      <w>basepath</w>
+      <w>couldn</w>
       <w>curfol</w>
       <w>curuser</w>
       <w>datafolder</w>
@@ -15,12 +17,14 @@
       <w>navinline</w>
       <w>netdrive</w>
       <w>networkdrive</w>
+      <w>newname</w>
       <w>preauth</w>
       <w>pycache</w>
       <w>pytest</w>
       <w>tblname</w>
       <w>unhashable</w>
       <w>venv</w>
+      <w>werkzeug</w>
     </words>
   </dictionary>
 </component>

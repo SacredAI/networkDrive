@@ -2,7 +2,6 @@
 import flask as f
 import os
 from netdrive.modules import auth, network
-from netdrive.util import url_check
 
 app = f.Flask(__name__)
 app.config.from_object('config')
