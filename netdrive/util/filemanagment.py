@@ -8,6 +8,14 @@ base_dir = app.config['BASE_DIR']
 
 
 def _file_check(file, path):
+    '''
+    :param File file: File to check
+    :param str path: Path to check
+    :return: Failed or Passed
+    :rtype: bool
+    :raises FileNotFoundError:
+    :raises NotADirectoryError:
+    '''
     if file is None:
         raise FileNotFoundError('Couldn\'t find the File you specified')
     if path is None or not os.path.exists(path):
@@ -16,6 +24,10 @@ def _file_check(file, path):
 
 
 def upload_file(file, path):
+    '''
+    :param File file: File to upload
+    :param str path: Directory to upload to
+    '''
     _file_check(file, path)
     file = secure_filename(file.filename)
     file.save(os.path.join(path, file.filename))
@@ -25,6 +37,10 @@ def upload_file(file, path):
 
 
 def delete_file(file, path):
+    '''
+    :param File file: File to be deleted
+    :param str path: Path to the file
+    '''
     _file_check(file, path)
     file = secure_filename(file.filename)
     os.remove(os.path.join(path, file.filename))
@@ -32,6 +48,11 @@ def delete_file(file, path):
 
 
 def rename_file(file, path, newname):
+    '''
+    :param File file: file to be renamed
+    :param str path: path the to the file
+    :param str newname: The Replacement Name
+    '''
     _file_check(file, path)
     newname = secure_filename(newname)
     os.rename(os.path.join(path, file), os.path.join(path, newname))
@@ -39,6 +60,10 @@ def rename_file(file, path, newname):
 
 
 def create_folder(basepath, folder):
+    '''
+    :param str basepath: Path to where the folder should be created
+    :param str folder: Folder to create
+    '''
     if not os.path.exists(basepath):
         raise NotADirectoryError('Couldn\'t find the folder you specified')
     folders = folder.split('/')
@@ -56,7 +81,11 @@ def create_folder(basepath, folder):
 
 
 def delete_folder(path):
+    '''
+    :param str path: Path to the folder where the last folder is the one being
+    removed
+    '''
     if not os.path.exists(path):
         raise NotADirectoryError('Couldn\'t find the folder specified')
     os.remove(path)
-    f.redirect(f.url_for('network.index'))
+    return f.redirect(f.url_for('network.index'))

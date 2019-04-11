@@ -10,7 +10,8 @@
 </head>
 <body>
 <div class="grid">
-    <div id="header"><img src="{{ url_for( 'static', filename='assets/networkdrive.png') }}" id="logo">Network
+    <div id="header"><a href="{{ url_for( 'network.index') }}"><img
+            src="{{ url_for( 'static', filename='assets/networkdrive.png') }}" id="logo"></a>Network
         Drive{% block header %}{% endblock %}</div>
     <div id="tab">{% block tab %}{% endblock %}</div>
     <div id="nav">{% block nav %}{% endblock %}</div>

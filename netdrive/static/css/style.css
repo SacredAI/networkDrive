@@ -141,3 +141,9 @@ body {
     text-align: center;
     font-size: calc(30px + 2vw);
 }
+
+.loggedinuser {
+    float: right;
+    color: red;
+}
+

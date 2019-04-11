@@ -4,8 +4,9 @@
     <title>{% block title %}Drive{% endblock %}</title>
 {% endblock %}
 {% block body %}
-    {% block header %}Search Bar{% endblock %}
-    {% block tab %}Drive selctor thingy mah bob{% endblock %}
+    {% block header %} Search bar here please and thankyou
+        <div class="loggedinuser">{{ session['user'] }}</div>{% endblock %}
+    {% block tab %}Drive selctor thingy mah bob{% endblock %}r
     {% block nav %}Navigational gear{% endblock %}
     {% block content %}Welcome to Hell my dear boy{% endblock %}
     {% block setting %}heheheheheheheh{% endblock %}

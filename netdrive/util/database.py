@@ -7,16 +7,16 @@ base_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 def create_and_update(table, dataset, keys, values):
     '''
-    :param table: Name of the Table being accessed
-    :type table: str
-    :param dataset: dataset being accessed
-    :type dataset: str
-    :param keys: All the keys used to identify values in the corresponding position
-    :type keys: list
-    :param values: All the vales identified by its key in the corresponding position
-    :type values: list
+    :param str table: Name of the Table being accessed
+    :param str dataset: dataset being accessed
+    :param list keys: All the keys used to identify values in the corresponding
+    position
+    :param list values: All the vales identified by its key in the corresponding
+    position
     :return: nil
     :raises IndexError: Raised if the function is passed an empty list
+    Access the Json file and creates a dataset in a table that consists of the
+    keys and values given
     '''
     if keys[0] is None or values[0] is None:
         raise IndexError('You passed an empty list')
@@ -35,13 +35,12 @@ def create_and_update(table, dataset, keys, values):
 
 def read_data(table, dataset):
     '''
-    :param table: Name of the table to Access
-    :type table: str
-    :param dataset: Name of Dataset to Access
-    :type dataset: str
+    :param str table: Name of the table to Access
+    :param str dataset: Name of Dataset to Access
     :return: Returns the table specified
     :rtype: dict
     :raises: IOError
+    Access the Json file and returns the dataset if it exists
     '''
     data = {}
     with open(os.path.join(base_dir, 'netdrive/util/data/data.json')) as j:
