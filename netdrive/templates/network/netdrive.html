@@ -8,6 +8,16 @@
         <div class="loggedinuser">{{ session['user'] }}</div>{% endblock %}
     {% block tab %}Drive selctor thingy mah bob{% endblock %}r
     {% block nav %}Navigational gear{% endblock %}
-    {% block content %}Welcome to Hell my dear boy{% endblock %}
+    {% block content %}
+        {% for x in files %}
+            <p>Magic</p>
+        {% endfor %}
+        {% for x in folders %}
+            <a href="#"><img
+                    src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}">{# TODO: Fix this up so it displays the name of the file and then style it #}
+            </a>
+        {% endfor %}
+        ?????
+    {% endblock %}
     {% block setting %}heheheheheheheh{% endblock %}
 {% endblock %}

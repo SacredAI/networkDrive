@@ -1,10 +1,6 @@
 import os
-from .. import app
 from werkzeug.utils import secure_filename
-
 import flask as f
-
-base_dir = app.config['BASE_DIR']
 
 
 def _file_check(file, path):
@@ -87,5 +83,27 @@ def delete_folder(path):
     '''
     if not os.path.exists(path):
         raise NotADirectoryError('Couldn\'t find the folder specified')
-    os.remove(path)
+    # Empties a folder before deleting it because python can't delete a folder if it has files inside
+    for root, folders, files in os.walk(path, topdown=False):
+        for x in files:
+            os.remove(os.path.join(root, x))
+        for x in folders:
+            os.rmdir(os.path.join(root, x))
+    os.rmdir(path)
     return f.redirect(f.url_for('network.index'))
+
+
+def file_getter(path):
+    '''
+    :param str path: Path to the base folder to check
+    :return: List of Files and Folders
+    '''
+    files = []
+    folders = []
+    print()
+    for root, folder, file in os.walk(path):
+        for x in file:
+            files.append(x)
+        for x in folder:
+            folders.append(x)
+    return files, folders
