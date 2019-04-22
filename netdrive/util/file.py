@@ -100,7 +100,6 @@ def file_getter(path):
     '''
     files = []
     folders = []
-    print()
     for root, folder, file in os.walk(path):
         for x in file:
             files.append(x)
