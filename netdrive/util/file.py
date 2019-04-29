@@ -83,7 +83,8 @@ def delete_folder(path):
     '''
     if not os.path.exists(path):
         raise NotADirectoryError('Couldn\'t find the folder specified')
-    # Empties a folder before deleting it because python can't delete a folder if it has files inside
+    # Empties a folder before deleting it because python can't delete a folder if it
+    # has files inside
     for root, folders, files in os.walk(path, topdown=False):
         for x in files:
             os.remove(os.path.join(root, x))
