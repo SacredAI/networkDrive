@@ -11,8 +11,6 @@ net_bp = f.Blueprint('network', __name__)
 def index():
     files, folder = file_getter(netdrive.app.config['BASE_DIR'] +
                                 "\\netdrive\\drive")
-    print(files)
-    print(folder)
     return f.render_template('network/netdrive.html', files=files, folders=folder)
 
 

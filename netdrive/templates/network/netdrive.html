@@ -5,39 +5,33 @@
 {% endblock %}
 {% block body %}
     {% block header %}
-        <div class="loggedinuser">{{ session['user'] }}</div>
-        <div class="searchbar">
-            <form name="search" method="get" action="/network/search">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
     {% endblock %}
     {% block tab %}Display Current Folder here (With drop down box for creation of specific file types) Access selected
         folder settings you know that stuff{% endblock %}r
     {% block nav %}Big Button with New in it<br>Main File<br>Bin<br> storage left for the user {# Assigned By admin
 #}{% endblock %}
     {% block content %}
-        Folders:
-        {% for x in folders %}
-            <a href="#"><img
-                    src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}"
-                    alt="{{ x }}">{{ x }}{# TODO: Fix this up so it displays the name of the file and then style it #}
-            </a>
-        {% endfor %}
-        Files:
-        {% for x in files %}
-            <a href="#"><img
-                    src="{{ url_for( 'static', filename='assets/fileicons/file.png' ) }}"
-                    alt="{{ x }}">{{ x }}{# TODO: Fix this up so it displays the name of the file and the Proper Icon #}
-            </a>
-        {% endfor %}
-        {% for x in folders %}
-            <a href="#"><img
-                    src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}"
-                    alt="{{ x }}">{{ x }}{# TODO: Fix this up so it displays the name of the file and then style it #}
-            </a>
-        {% endfor %}
+        <div class="displays"><p>Folders:</p>
+            <div class="files">{% for x in folders %}
+                <div class="imgdis"><a href="#"><img
+                        src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}"
+                        alt="{{ x }}">
+                    <p class="foldername">{{ x }}</p>{# TODO: Fix this up so it displays the name of the
+                    file and then style it #}
+                </a></div>
+            {% endfor %}</div>
+        </div>
+        <div class="displays">
+            <p>Files:</p>
+            <div class="files">{% for x in files %}
+                <div class="imgdis"><a href="#"><img
+                        src="{{ url_for( 'static', filename='assets/fileicons/file.png' ) }}"
+                        alt="{{ x }}">
+                    <p>{{ x }}</p>{# TODO: Fix this up so it displays the name of the file and the
+                        Proper Icon #}
+                </a></div>
+            {% endfor %}</div>
+        </div>
     {% endblock %}
     {% block setting %}heheheheheheheh{% endblock %}
 {% endblock %}

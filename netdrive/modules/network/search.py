@@ -6,7 +6,7 @@ import netdrive
 
 # TODO: Expand search to allow for matches if requested
 def search():
-    keyword = f.request.form[search]
+    keyword = f.request.args.get("search")
     files, folders = file_getter(netdrive.app.config["BASE_DIR"] +
                                  "\\netdrive\\drive")
     fileresults = []

@@ -13,7 +13,15 @@
 <div class="grid">
     <div id="header"><a href="{{ url_for( 'network.index') }}"><img
             src="{{ url_for( 'static', filename='assets/networkdrive.png') }}" class="logo"></a>Network
-        Drive{% block header %}{% endblock %}</div>
+        Drive
+        <div class="loggedinuser">{{ session['user'] }}</div>
+        <div class="searchbar">
+            <form name="fsearch" method="get" action="/network/search">
+                <input type="text" placeholder="Search.." name="search" required>
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        {% block header %}{% endblock %}</div>
     <div id="tab">{% block tab %}{% endblock %}</div>
     <div id="nav">{% block nav %}{% endblock %}</div>
     <div id="content">{% block content %}{% endblock %}</div>
