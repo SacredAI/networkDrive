@@ -7,6 +7,10 @@ DEBUG = True
 # Define the application directory
 BASE_DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
 
+# Sijax directory setup
+SIJAX_STATIC_PATH = os.path.join(BASE_DIR, 'static/js/sijax/')
+SIJAX_JSON_URI = '/static/js/sijax/json2.js'
+
 # Define the upload directory
 UPLOAD_DIR = os.path.realpath('network/files')
 

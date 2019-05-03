@@ -6,7 +6,7 @@ from .search import search
 net_bp = f.Blueprint('network', __name__)
 
 
-@net_bp.route('/')
+@net_bp.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
     files, folder = file_getter(netdrive.app.config['BASE_DIR'] +
@@ -14,7 +14,7 @@ def index():
     return f.render_template('network/netdrive.html', files=files, folders=folder)
 
 
-@net_bp.route('/search', methods=["GET"])
+@net_bp.route('/search', methods=['GET', 'POST'])
 @login_required
 def search_route():
     return search()

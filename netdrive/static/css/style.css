@@ -130,19 +130,23 @@ body {
 
 #tab {
     grid-area: tab;
+    background-color: var(--color-3);
 }
 
 #nav {
     grid-area: nav;
+    background-color: var(--color-3);
 }
 
 #content {
     grid-area: content;
     min-width: 60vw;
+    background-color: var(--color-4);
 }
 
 #setting {
     grid-area: setting;
+    background-color: var(--color-3);
 }
 
 #404heading {
