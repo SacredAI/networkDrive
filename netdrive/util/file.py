@@ -102,6 +102,8 @@ def file_getter(path):
     files = []
     folders = []
     for root, folder, file in os.walk(path):
+        if root != path:
+            break
         for x in file:
             files.append(x)
         for x in folder:

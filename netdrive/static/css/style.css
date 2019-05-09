@@ -131,6 +131,7 @@ body {
 #tab {
     grid-area: tab;
     background-color: var(--color-3);
+    height: auto;
 }
 
 #nav {
@@ -141,7 +142,9 @@ body {
 #content {
     grid-area: content;
     min-width: 60vw;
+    min-height: 40vw;
     background-color: var(--color-4);
+    height: auto;
 }
 
 #setting {
@@ -198,10 +201,37 @@ body {
     border: groove var(--color-5);
     font-size: calc(10px + 0.5vw);
     margin: 0.5vw 0.5vw 0;
-    background-color: var(--color-3);
+    background-color: var(--color-5);
 }
 
 .imgdis img {
     display: block;
+    border-bottom: groove var(--color-5);
+}
+
+ul.breadcrumb {
+    padding: 10px 5px;
+    list-style: none;
+}
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 22px;
+}
+
+ul.breadcrumb li a {
+    color: var(--color-1);
+    text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+    background-color: var(--color-4);
+    text-decoration: underline;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.empty {
+    margin: 0 auto;
 }
 

@@ -1,5 +1,4 @@
 flask
 passlib
 werkzeug
-flask-sijax
-sijax
+flask_sijax

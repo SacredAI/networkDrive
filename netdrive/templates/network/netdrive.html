@@ -2,27 +2,42 @@
 {% extends 'base.html' %}
 {% block head %}
     <title>{% block title %}Drive{% endblock %}</title>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $("#breadcrumb").last().css("font-weight", "bold")
+        });
+    </script>
 {% endblock %}
 {% block body %}
     {% block header %}
     {% endblock %}
-    {% block tab %}Display Current Folder here (With drop down box for creation of specific file types) Access selected
-        folder settings you know that stuff{% endblock %}r
+    {% block tab %}
+        <div class="trail">
+            <ul class="breadcrumb" id="breadcrumb">
+                <li><a href="{{ url_for('network.index') }}">Drive</a></li>
+                {% for x in bread %}
+                    <li><i class="fas fa-angle-right"></i><a
+                            href="{{ url_for('network.folder_route', fol=x, up=true) }}">{{ x }}</a></li>
+                {% endfor %}
+            </ul>
+        </div> {% endblock %}r
     {% block nav %}Big Button with New in it<br>Main File<br>Bin<br> storage left for the user {# Assigned By admin
 #}{% endblock %}
     {% block content %}
-        <div class="displays"><p>Folders:</p>
+        {% if folders|length or files|length %}
+            <div class="displays">{% if folders|length %}<p>Folders:</p>
             <div class="files">{% for x in folders %}
-                <div class="imgdis"><a href="#"><img
+                <div class="imgdis"><a href="{{ url_for( 'network.folder_route', fol=x ) }}"><img
                         src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}"
                         alt="{{ x }}">
                     <p class="foldername">{{ x }}</p>{# TODO: Fix this up so it displays the name of the
                     file and then style it #}
                 </a></div>
             {% endfor %}</div>
+            {% endif %}
         </div>
         <div class="displays">
-            <p>Files:</p>
+            {% if files|length %}<p>Files:</p>
             <div class="files">{% for x in files %}
                 <div class="imgdis"><a href="#"><img
                         src="{{ url_for( 'static', filename='assets/fileicons/file.png' ) }}"
@@ -30,8 +45,12 @@
                     <p>{{ x }}</p>{# TODO: Fix this up so it displays the name of the file and the
                         Proper Icon #}
                 </a></div>
-            {% endfor %}</div>
+            {% endfor %}</div>{% endif %}
         </div>
+        {% else %}
+            {#            TODO: Center this and make it nice and pretty#}
+            <p class="empty">This folder is Empty</p>
+        {% endif %}
     {% endblock %}
     {% block setting %}heheheheheheheh{% endblock %}
 {% endblock %}

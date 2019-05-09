@@ -8,11 +8,11 @@ DEBUG = True
 BASE_DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 # Sijax directory setup
-SIJAX_STATIC_PATH = os.path.join(BASE_DIR, 'static/js/sijax/')
-SIJAX_JSON_URI = '/static/js/sijax/json2.js'
+SIJAX_STATIC_PATH = os.path.join(BASE_DIR, 'netdrive/static/js/sijax/')
+SIJAX_JSON_URI = os.path.join(BASE_DIR, 'netdrive/static/js/sijax/json2.js')
 
 # Define the upload directory
-UPLOAD_DIR = os.path.realpath('network/files')
+UPLOAD_DIR = os.path.realpath('netdrive/drive')
 
 # Secret key for signing cookies
 SECRET_KEY = b',chks\x9f|\x08\x94c-\x94\x90\xa5\xa2\xbd'
