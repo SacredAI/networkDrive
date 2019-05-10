@@ -1,4 +1,3 @@
 flask
 passlib
-werkzeug
-flask_sijax
+flask-dropzone

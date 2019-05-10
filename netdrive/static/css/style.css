@@ -115,7 +115,7 @@ body {
 
 .grid {
     display: grid;
-    grid-template-areas: 'header header header' 'nav tab setting' 'nav content setting';
+    grid-template-areas: 'header header header' 'nav tab tab' 'nav content setting';
     width: 90vw;
     margin: 0 auto;
 }
@@ -167,7 +167,7 @@ body {
     float: right;
 }
 
-.searchbar input[type=text] {
+.searchbar input {
     padding: 6px;
     margin-top: 8px;
     font-size: 17px;
@@ -233,5 +233,9 @@ ul.breadcrumb li a:hover {
 
 .empty {
     margin: 0 auto;
+}
+
+.dropzonec {
+    display: none;
 }
 

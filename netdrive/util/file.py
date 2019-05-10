@@ -25,8 +25,8 @@ def upload_file(file, path):
     :param str path: Directory to upload to
     '''
     _file_check(file, path)
-    file = secure_filename(file.filename)
-    file.save(os.path.join(path, file.filename))
+    file = secure_filename(file)
+    file.save(os.path.join(path, file))
     return f.redirect(f.url_for(
         'network.index'))  # Change this to some javascript/restapi/ Ajax stuff
     # so I don't need to reload
@@ -38,8 +38,8 @@ def delete_file(file, path):
     :param str path: Path to the file
     '''
     _file_check(file, path)
-    file = secure_filename(file.filename)
-    os.remove(os.path.join(path, file.filename))
+    file = secure_filename(file)
+    os.remove(os.path.join(path, file))
     return f.redirect(f.url_for('network.index'))
 
 

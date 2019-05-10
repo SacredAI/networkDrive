@@ -1,8 +1,11 @@
+import os
+
 import flask as f
+
 import netdrive
-from ...util import login_required, file_getter
-from .search import search
 from .folder import down_folder, up_folder
+from .search import search
+from ...util import login_required, file_getter, upload_file
 
 net_bp = f.Blueprint('network', __name__)
 
@@ -12,6 +15,7 @@ net_bp = f.Blueprint('network', __name__)
 def index():
     f.session["cur_folder"] = ''
     files, folders = file_getter(netdrive.app.config['UPLOAD_DIR'])
+    f.g.search = False
     return f.render_template('network/netdrive.html', files=files,
                              folders=folders, bread=f.session[
                                                         "cur_folder"].split("/")[
@@ -22,6 +26,15 @@ def index():
 @login_required
 def search_route():
     return search()
+
+
+@net_bp.route('/upload', methods=['GET', 'POST'])
+@login_required
+def upload_route():
+    return upload_file(f.request.args.get('file'), os.path.join(netdrive.app.config[
+                                                                    'UPLOAD_DIR'] +
+                                                                f.session[
+                                                                    'cur_folder']))
 
 
 @net_bp.route('/folder', methods=['GET', 'POST'])

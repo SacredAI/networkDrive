@@ -48,8 +48,12 @@
             {% endfor %}</div>{% endif %}
         </div>
         {% else %}
-            {#            TODO: Center this and make it nice and pretty#}
-            <p class="empty">This folder is Empty</p>
+            {#TODO: Center this and make it nice and pretty#}
+            {% if g.search %}
+                <P>Couldn't find that file or folder</P>
+            {% else %}
+                <p>This Folder is Empty</p>
+            {% endif %}
         {% endif %}
     {% endblock %}
     {% block setting %}heheheheheheheh{% endblock %}
