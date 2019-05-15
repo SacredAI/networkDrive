@@ -1,13 +1,11 @@
 import flask as f
 import os
 from netdrive.modules import auth, network
-from flask_dropzone import Dropzone
 
 
 app = f.Flask(__name__)
 app.config.from_object('config')
 app.secret_key = app.config["SECRET_KEY"]
-Dropzone(app)
 
 # <editor-fold desc="Description">
 app.register_blueprint(auth.auth_bp, url_prefix='/auth')

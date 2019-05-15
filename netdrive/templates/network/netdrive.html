@@ -20,33 +20,78 @@
                             href="{{ url_for('network.folder_route', fol=x, up=true) }}">{{ x }}</a></li>
                 {% endfor %}
             </ul>
-        </div> {% endblock %}r
-    {% block nav %}Big Button with New in it<br>Main File<br>Bin<br> storage left for the user {# Assigned By admin
-#}{% endblock %}
+        </div>
+        <div class="tabbutton">
+            <script>
+                function menuanim(x) {
+                    x.classList.toggle("change");
+                }
+            </script>
+            <div class="container" onclick="menuanim(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+    {% endblock %}
+    {% block nav %}
+        <ul class="navmenu">
+            <li class="filebutton">
+                <button class="menudropdown" onclick="fmanagementopen()"><i class="fas fa-plus"></i> New</button>
+                <div id="dropdowncontent" class="dropdowncontent">
+                    <span class="nfile">New File</span>
+                    <span class="nfolder">New Folder</span>
+                    <div class="spacer"></div>
+                    <span class="ufile">File Upload</span>
+                    <span class="ufolder">Folder Upload</span>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li><span class="drive">Net Drive</span></li>
+        </ul> {# Assigned By admin #}
+        <script>
+            function fmanagementopen() {
+                document.getElementById("dropdowncontent").classList.toggle("show")
+            }
+
+            window.onclick = (event) => {
+                if (!event.target.matches('.menudropdown')) {
+                    let dropdowns = document.getElementsByClassName("dropdowncontent");
+                    let i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        let openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+    {% endblock %}
     {% block content %}
         {% if folders|length or files|length %}
             <div class="displays">{% if folders|length %}<p>Folders:</p>
-            <div class="files">{% for x in folders %}
-                <div class="imgdis"><a href="{{ url_for( 'network.folder_route', fol=x ) }}"><img
-                        src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}"
-                        alt="{{ x }}">
-                    <p class="foldername">{{ x }}</p>{# TODO: Fix this up so it displays the name of the
+                <div class="files">{% for x in folders %}
+                    <div class="imgdis"><a href="{{ url_for( 'network.folder_route', fol=x ) }}"><img
+                            src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}"
+                            alt="{{ x }}">
+                        <p class="foldername">{{ x }}</p>{# TODO: Fix this up so it displays the name of the
                     file and then style it #}
-                </a></div>
-            {% endfor %}</div>
+                    </a></div>
+                {% endfor %}</div>
             {% endif %}
-        </div>
-        <div class="displays">
-            {% if files|length %}<p>Files:</p>
-            <div class="files">{% for x in files %}
-                <div class="imgdis"><a href="#"><img
-                        src="{{ url_for( 'static', filename='assets/fileicons/file.png' ) }}"
-                        alt="{{ x }}">
-                    <p>{{ x }}</p>{# TODO: Fix this up so it displays the name of the file and the
+            </div>
+            <div class="displays">
+                {% if files|length %}<p>Files:</p>
+                    <div class="files">{% for x in files %}
+                        <div class="imgdis"><a href="#"><img
+                                src="{{ url_for( 'static', filename='assets/fileicons/file.png' ) }}"
+                                alt="{{ x }}">
+                            <p>{{ x }}</p>{# TODO: Fix this up so it displays the name of the file and the
                         Proper Icon #}
-                </a></div>
-            {% endfor %}</div>{% endif %}
-        </div>
+                        </a></div>
+                    {% endfor %}</div>{% endif %}
+            </div>
         {% else %}
             {#TODO: Center this and make it nice and pretty#}
             {% if g.search %}

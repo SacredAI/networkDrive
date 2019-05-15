@@ -21,7 +21,7 @@
         {% if Failed == True %}
             <h1 style="color: red"> Incorrect Username or Password</h1>
         {% endif %}
-        <form name="login" method="post" action="/auth/login" class="loginform">
+        <form name="login" method="post" action="{{ url_for('auth.login_route') }}" class="loginform">
             <input type="text" placeholder="Enter Username" name="user" required> <br>
             <input type="password" placeholder="Enter Password" name="passw" required><br>
             <input type="submit" value="Login" id="login">

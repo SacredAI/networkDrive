@@ -107,6 +107,7 @@ body {
 #login {
     text-align: center;
     margin-left: 130px;
+    border-radius: 25px;
 }
 
 /*---------
@@ -137,6 +138,10 @@ body {
 #nav {
     grid-area: nav;
     background-color: var(--color-3);
+    min-width: 170px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #content {
@@ -145,6 +150,7 @@ body {
     min-height: 40vw;
     background-color: var(--color-4);
     height: auto;
+    overflow-x: scroll;
 }
 
 #setting {
@@ -209,6 +215,10 @@ body {
     border-bottom: groove var(--color-5);
 }
 
+.trail {
+    float: left;
+}
+
 ul.breadcrumb {
     padding: 10px 5px;
     list-style: none;
@@ -235,7 +245,84 @@ ul.breadcrumb li a:hover {
     margin: 0 auto;
 }
 
-.dropzonec {
-    display: none;
+.navmenu {
+    list-style: none;
+    font-size: 20px;
 }
 
+.menudropdown {
+    border-radius: 15px;
+    background-color: var(--color-4);
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+
+.menudropdown:hover, .menudropdown:focus {
+    background-color: var(--color-5);
+}
+
+.filebutton {
+    position: relative;
+}
+
+.dropdowncontent {
+    display: none;
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: var(--color-4);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-size: 20px;
+}
+
+.show {
+    display: block;
+}
+
+.spacer {
+    height: 1vw;
+    border-bottom: 1px solid black;
+    transform: translateY(-50%);
+}
+
+.dropdowncontent span:hover {
+    cursor: pointer;
+}
+
+.tabbutton {
+    float: right;
+}
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}

@@ -24,12 +24,7 @@ def upload_file(file, path):
     :param File file: File to upload
     :param str path: Directory to upload to
     '''
-    _file_check(file, path)
-    file = secure_filename(file)
-    file.save(os.path.join(path, file))
-    return f.redirect(f.url_for(
-        'network.index'))  # Change this to some javascript/restapi/ Ajax stuff
-    # so I don't need to reload
+    file.save(os.path.join(path, secure_filename(file.filename)))
 
 
 def delete_file(file, path):

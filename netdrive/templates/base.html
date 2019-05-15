@@ -14,14 +14,6 @@
     url_for('static', filename='js/jquery/jquery.js') }}">\x3C/script>')</script>
     <script src="{{ url_for('static', filename='js/dropzone/dropzone.js') }}">
     </script>
-    <script>
-        $('#content').ondragover((ev) => {
-            $('.dropzonec').css("display", "block");
-
-            ev.preventDefault()
-        });
-    </script>
-    {{ dropzone.load_css()|safe }}
 </head>
 <body>
 <div class="grid">
@@ -39,10 +31,8 @@
     <div id="tab">{% block tab %}{% endblock %}</div>
     <div id="nav">{% block nav %}{% endblock %}</div>
     <div id="content">
-        {{ dropzone.load_js() }}
-        {{ dropzone.create(action=url_for('network.upload_route')) }}
-        {{ dropzone.config() }}</div>
-    {% block content %}{% endblock %}
+
+        {% block content %}{% endblock %}</div>
     <div id="setting">{% block setting %}{% endblock %}</div>
 </div>
 </body>

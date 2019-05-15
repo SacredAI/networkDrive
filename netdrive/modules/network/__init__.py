@@ -31,10 +31,23 @@ def search_route():
 @net_bp.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload_route():
-    return upload_file(f.request.args.get('file'), os.path.join(netdrive.app.config[
-                                                                    'UPLOAD_DIR'] +
-                                                                f.session[
-                                                                    'cur_folder']))
+    if f.request.method == 'POST':
+        for key, files in f.request.files.items():
+            if key.startswith('file'):
+                upload_file(files,
+                            os.path.join(netdrive.app.config[
+                                             'UPLOAD_DIR'] +
+                                         f.session[
+                                             'cur_folder']))
+        files, folders = file_getter(os.path.join(netdrive.app.config[
+                                                      'UPLOAD_DIR'],
+                                                  f.session[
+                                                      'cur_folder']))
+        f.g.search = False
+        return f.render_template('network/netdrive.html', files=files,
+                                 folders=folders, bread=f.session[
+                                                            "cur_folder"].split(
+                "/")[1:])
 
 
 @net_bp.route('/folder', methods=['GET', 'POST'])
