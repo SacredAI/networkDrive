@@ -35,20 +35,66 @@
         </div>
     {% endblock %}
     {% block nav %}
+        <script>
+            function openfilenav() {
+                document.getElementById("nfileoverlay").style.width = "100%";
+            }
+
+            function closefilenav() {
+                document.getElementById("nfileoverlay").style.width = "0%";
+            }
+
+            function openfoldernav() {
+                document.getElementById("nfolderoverlay").style.width = "100%";
+            }
+
+            function closefoldernav() {
+                document.getElementById("nfolderoverlay").style.width = "0%";
+            }
+        </script>
         <ul class="navmenu">
             <li class="filebutton">
                 <button class="menudropdown" onclick="fmanagementopen()"><i class="fas fa-plus"></i> New</button>
                 <div id="dropdowncontent" class="dropdowncontent">
-                    <span class="nfile">New File</span>
-                    <span class="nfolder">New Folder</span>
+                    <span class="nfile" onclick="">New File</span>
+                    <br>
+                    <span class="nfile">New Folder</span>
                     <div class="spacer"></div>
-                    <span class="ufile">File Upload</span>
-                    <span class="ufolder">Folder Upload</span>
+                    <span class="nfile" onclick="openfilenav()"><i class="fas fa-upload"></i>File Upload</span><br>
+                    <span class="nfile" onclick="openfoldernav()"><i class="fas fa-upload"></i>Folder Upload</span>
                 </div>
             </li>
             <li class="spacer"></li>
-            <li><span class="drive">Net Drive</span></li>
+            <li><a href="{{ url_for('network.index') }}"><span class="drive">Net Drive</span></a></li>
         </ul> {# Assigned By admin #}
+        <div id="nfileoverlay" class="nfileoverlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closefilenav()">&times;</a>
+            <div class="overlay-content">
+                <div class="fileuploadbox">
+                    <form method="post" action="{{ url_for('network.uploadfile_route') }}"
+                          enctype="multipart/form-data">
+                        <input type="file" class="fileupload" name="file[0]">
+                        <input type="file" class="fileupload" name="file[1]">
+                        <input type="file" class="fileupload" name="file[2]">
+                        <input type="submit" value="upload" name="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="nfolderoverlay" class="nfolderoverlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closefoldernav()">&times;</a>
+            <div class="overlay-content">
+                <div class="fileuploadbox">
+                    <form method="post" action="{{ url_for('network.uploadfolder_route') }}"
+                          enctype="multipart/form-data">
+                        <input type="file" name="folderupload" value="Choose Folder" webkitdirectory="" mozdirectory=""
+                               directory=""
+                               multiple>
+                        <input type="submit" value="upload" name="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
         <script>
             function fmanagementopen() {
                 document.getElementById("dropdowncontent").classList.toggle("show")
@@ -69,13 +115,19 @@
         </script>
     {% endblock %}
     {% block content %}
+        {% if g.blockedext %}
+            <h1 class="blockedext">You can't up load a file with the extension '{{ g.blockedext }}'</h1>
+            {% set g.blockedext = false %}
+        {% endif %}
         {% if folders|length or files|length %}
             <div class="displays">{% if folders|length %}<p>Folders:</p>
                 <div class="files">{% for x in folders %}
-                    <div class="imgdis"><a href="{{ url_for( 'network.folder_route', fol=x ) }}"><img
+                    <div class="imgdisf" draggable="true"><a
+                            style="text-decoration:none; color: black; word-wrap: break-word;"
+                            href="{{ url_for( 'network.folder_route', fol=x ) }}"><img
                             src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}"
-                            alt="{{ x }}">
-                        <p class="foldername">{{ x }}</p>{# TODO: Fix this up so it displays the name of the
+                            alt="{{ x }}" class="folder">
+                        <p class="displayname">{{ x }}</p>{# TODO: Fix this up so it displays the name of the
                     file and then style it #}
                     </a></div>
                 {% endfor %}</div>
@@ -84,10 +136,13 @@
             <div class="displays">
                 {% if files|length %}<p>Files:</p>
                     <div class="files">{% for x in files %}
-                        <div class="imgdis"><a href="#"><img
+                        <div class="imgdis" draggable="true" id="{{ x }}"><a
+                                style="text-decoration:none; color: black; word-wrap: break-word;"
+                                href="#"><img
                                 src="{{ url_for( 'static', filename='assets/fileicons/file.png' ) }}"
                                 alt="{{ x }}">
-                            <p>{{ x }}</p>{# TODO: Fix this up so it displays the name of the file and the
+                            <p class="displayname">{{ x }}</p>{# TODO: Fix this up so it displays the name of the file
+                             and the
                         Proper Icon #}
                         </a></div>
                     {% endfor %}</div>{% endif %}
@@ -95,11 +150,80 @@
         {% else %}
             {#TODO: Center this and make it nice and pretty#}
             {% if g.search %}
-                <P>Couldn't find that file or folder</P>
+                <P class="placeholdertext">Couldn't find that file or folder</P>
             {% else %}
-                <p>This Folder is Empty</p>
+                <p class="placeholdertext">This Folder is Empty</p>
             {% endif %}
         {% endif %}
+        <div class="rmenuh" id="rmenu">
+            <ul>
+                <li><span>Rename</span></li>
+                <li><span>Move To<i class="fas fa-arrow-right"></i></span></li>
+                <li>
+                    <div class="spacer"></div>
+                </li>
+                <li><span id="download">Download</span></li>
+                <li>
+                    <div class="spacer"></div>
+                </li>
+                <li><span>Remove</span></li>
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $('div.imgdis').on('contextmenu', function (e) {
+
+                    $(this).addClass("selected");
+                    document.getElementById("rmenu").className = "rmenus";
+                    document.getElementById("rmenu").style.top = mouseY(event) + 'px';
+                    document.getElementById("rmenu").style.left = mouseX(event) + 'px';
+
+                    window.event.returnValue = false;
+
+                });
+            });
+
+            $(document).bind("click", function (event) {
+                document.getElementById("rmenu").className = "rmenuh";
+                $('.selected').removeClass('selected')
+            });
+
+
+            function mouseX(evt) {
+                if (evt.pageX) {
+                    return evt.pageX;
+                } else if (evt.clientX) {
+                    return evt.clientX + (document.documentElement.scrollLeft ?
+                        document.documentElement.scrollLeft :
+                        document.body.scrollLeft);
+                } else {
+                    return null;
+                }
+            }
+
+            function mouseY(evt) {
+                if (evt.pageY) {
+                    return evt.pageY;
+                } else if (evt.clientY) {
+                    return evt.clientY + (document.documentElement.scrollTop ?
+                        document.documentElement.scrollTop :
+                        document.body.scrollTop);
+                } else {
+                    return null;
+                }
+            }
+
+            $(() => {
+                $('#download').bind('click', () => {
+                    $.getJSON($SCRIPT_ROOT + '{{ url_for('network.parse_route') }}', {
+                        selected: $('.selected').attr('id')
+                    }, (data) => {
+                        return (window.location.href = '{{ url_for('network.download_route') }}');
+                    });
+                    return false;
+                });
+            });
+        </script>
     {% endblock %}
     {% block setting %}heheheheheheheh{% endblock %}
 {% endblock %}

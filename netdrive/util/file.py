@@ -1,6 +1,7 @@
 import os
 from werkzeug.utils import secure_filename
 import flask as f
+import netdrive
 
 
 def _file_check(file, path):
@@ -24,7 +25,27 @@ def upload_file(file, path):
     :param File file: File to upload
     :param str path: Directory to upload to
     '''
+    for x in range(len(netdrive.app.config["BLOCKED_EXT"])):
+        if netdrive.app.config["BLOCKED_EXT"][x] in file.filename:
+            f.g.blockedext = netdrive.app.config["BLOCKED_EXT"][x]
+            return
     file.save(os.path.join(path, secure_filename(file.filename)))
+
+
+def upload_folder(file, path):
+    '''
+        :param File file: current File bing uploaded
+        :param str path: Directory to upload to
+    '''
+    for x in range(len(netdrive.app.config["BLOCKED_EXT"])):
+        if netdrive.app.config["BLOCKED_EXT"][x] in file.filename:
+            f.g.blockedext = netdrive.app.config["BLOCKED_EXT"][x]
+            return
+    folder = file.filename.split("/")
+    folder = '/'.join(folder[:len(folder) - 1])
+    if not os.path.exists(os.path.join(path, folder)):
+        create_folder(path, folder)
+    file.save(os.path.join(path, folder, secure_filename(file.filename)))
 
 
 def delete_file(file, path):
@@ -46,8 +67,7 @@ def rename_file(file, path, newname):
     '''
     _file_check(file, path)
     newname = secure_filename(newname)
-    os.rename(os.path.join(path, file), os.path.join(path, newname))
-    return f.redirect(f.url_for('network.index'))
+    os.rename(os.path.join(path, file.filename), os.path.join(path, newname))
 
 
 def create_folder(basepath, folder):
@@ -68,7 +88,6 @@ def create_folder(basepath, folder):
                     basepath = os.path.join(basepath, folders[x - x + 1])
                 else:
                     t = os.path.join(t, folders[x - x + 1])
-    return f.redirect(f.url_for('network.index'))
 
 
 def delete_folder(path):
@@ -86,7 +105,6 @@ def delete_folder(path):
         for x in folders:
             os.rmdir(os.path.join(root, x))
     os.rmdir(path)
-    return f.redirect(f.url_for('network.index'))
 
 
 def file_getter(path):
