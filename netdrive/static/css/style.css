@@ -511,3 +511,40 @@ span.nfile:hover {
     transition: 0.3s;
     cursor: pointer;
 }
+
+.renameoverlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to left, var(--color-3), var(--color-2));
+    filter: opacity(90%);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.renameoverlay a {
+    padding: 8px;;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.renameoverlay input:hover, .renameoverlay input:focus,
+.renameoverlay a:hover, .renameoverlay a:focus {
+    color: var(--color-4);
+}
+
+.renameoverlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+.renamebox input[type=text] {
+    color: black;
+}

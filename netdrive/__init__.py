@@ -7,10 +7,8 @@ app = f.Flask(__name__)
 app.config.from_object('config')
 app.secret_key = app.config["SECRET_KEY"]
 
-# <editor-fold desc="Description">
 app.register_blueprint(auth.auth_bp, url_prefix='/auth')
 app.register_blueprint(network.net_bp, url_prefix='/network')
-# </editor-fold>
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -18,7 +16,6 @@ def index():
     return f.render_template("index.html", Failed=False)
 
 
-# <editor-fold desc="Url handling">
 @app.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
@@ -38,4 +35,3 @@ def dated_url_for(endpoint, **values):
 @app.errorhandler(404)
 def page_not_found(error):
     return f.render_template("codes/404.html"), 404
-# </editor-fold>

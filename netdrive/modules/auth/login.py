@@ -6,10 +6,9 @@ from passlib.hash import sha256_crypt
 def login():
     if auth_check(f.request.form["user"], f.request.form["passw"]) is True:
         f.session['user'] = f.request.form["user"]
-        return f.redirect(f.url_for('network.index'))
+        return f.redirect(f.url_for('network.index', home=True))
     else:
         return f.render_template("index.html", Failed=True)
-
     # Auth Check
 
 

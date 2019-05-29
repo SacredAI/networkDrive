@@ -1,11 +1,9 @@
 import os
 
 import flask as f
-from ...util import file_getter
 import netdrive
 
 
-# TODO: Expand search to allow for matches if requested
 def search():
     keyword = f.request.args.get("search")
     files, folders = directory_walk(netdrive.app.config['UPLOAD_DIR'])

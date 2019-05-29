@@ -3,7 +3,7 @@ import os
 import flask as f
 
 import netdrive
-from ...util import upload_file, upload_folder
+from ...util import upload_file, upload_folder, rename_file, move_file, delete
 
 
 def uploadfile():
@@ -15,7 +15,7 @@ def uploadfile():
                                              'UPLOAD_DIR'] +
                                          f.session[
                                              'cur_folder']))
-    return f.redirect(f.url_for('network.index', home=False))
+    return f.redirect(f.url_for('network.index'))
 
 
 def uploadfolder():
@@ -27,7 +27,7 @@ def uploadfolder():
                                        f.session[
                                            'cur_folder']))
 
-    return f.redirect(f.url_for('network.index', home=False))
+    return f.redirect(f.url_for('network.index'))
 
 
 def download():
@@ -35,4 +35,26 @@ def download():
         return f.send_file(os.path.join(netdrive.app.config['UPLOAD_DIR'],
                                         f.session['cur_folder'],
                                         f.session['selected']), as_attachment=True)
+    return f.redirect(f.url_for('network.index'))
+
+
+def rename():
+    if f.session['selected']:
+        rename_file(f.session['selected'],
+                    os.path.join(netdrive.app.config['UPLOAD_DIR'],
+                                 f.session['cur_folder']), f.request.form["rename"])
+    return f.redirect(f.url_for('network.index'))
+
+
+def move():
+    move_file(f.session['selected'],
+              netdrive.app.config['UPLOAD_DIR'] + f.session['cur_folder'],
+              netdrive.app.config['UPLOAD_DIR'] + f.session['cur_folder'] + "/" +
+              f.session['folder'])
+    return f.redirect(f.url_for('network.index'))
+
+
+def remove():
+    delete(netdrive.app.config['UPLOAD_DIR'] +
+           f.session['cur_folder'] + '/' + f.session['selected'])
     return f.redirect(f.url_for('network.index', home=False))

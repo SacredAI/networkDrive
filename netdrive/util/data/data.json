@@ -2,8 +2,11 @@
     "accounts": {
         "admin": {
             "username": "admin",
-          "password": "$5$rounds=535000$9uTytcJFkIT08fqO$1oEW28HjucBqXK8ucbEnONiCZBKicJJur/3BgpIu5z3",
-          "perms": "*"
+          "password": "$5$rounds=535000$9uTytcJFkIT08fqO$1oEW28HjucBqXK8ucbEnONiCZBKicJJur/3BgpIu5z3"
+        },
+      "alex": {
+        "username": "alex",
+        "password": "$5$rounds=535000$9uTytcJFkIT08fqO$1oEW28HjucBqXK8ucbEnONiCZBKicJJur/3BgpIu5z3"
         }
     }
 }

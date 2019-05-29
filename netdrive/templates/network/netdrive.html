@@ -14,24 +14,12 @@
     {% block tab %}
         <div class="trail">
             <ul class="breadcrumb" id="breadcrumb">
-                <li><a href="{{ url_for('network.index') }}">Drive</a></li>
+                <li><a href="{{ url_for('network.index', home=true, reset=true) }}">Drive</a></li>
                 {% for x in bread %}
                     <li><i class="fas fa-angle-right"></i><a
                             href="{{ url_for('network.folder_route', fol=x, up=true) }}">{{ x }}</a></li>
                 {% endfor %}
             </ul>
-        </div>
-        <div class="tabbutton">
-            <script>
-                function menuanim(x) {
-                    x.classList.toggle("change");
-                }
-            </script>
-            <div class="container" onclick="menuanim(this)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
         </div>
     {% endblock %}
     {% block nav %}
@@ -51,21 +39,30 @@
             function closefoldernav() {
                 document.getElementById("nfolderoverlay").style.width = "0%";
             }
+
+            function openrename() {
+                document.getElementById("renameoverlay").style.width = "100%";
+            }
+
+            function closerename() {
+                document.getElementById("renameoverlay").style.width = "0%";
+            }
         </script>
         <ul class="navmenu">
             <li class="filebutton">
                 <button class="menudropdown" onclick="fmanagementopen()"><i class="fas fa-plus"></i> New</button>
                 <div id="dropdowncontent" class="dropdowncontent">
-                    <span class="nfile" onclick="">New File</span>
-                    <br>
-                    <span class="nfile">New Folder</span>
+                    {#                    <span class="nfile" onclick="">New File</span>#}
+                    {#                    <br>#}
+                    {#                    <span class="nfile">New Folder</span>#}
                     <div class="spacer"></div>
                     <span class="nfile" onclick="openfilenav()"><i class="fas fa-upload"></i>File Upload</span><br>
                     <span class="nfile" onclick="openfoldernav()"><i class="fas fa-upload"></i>Folder Upload</span>
                 </div>
             </li>
             <li class="spacer"></li>
-            <li><a href="{{ url_for('network.index') }}"><span class="drive">Net Drive</span></a></li>
+            <li><a href="{{ url_for('network.index', home=true, reset=true) }}"><span class="drive">Net
+                Drive</span></a></li>
         </ul> {# Assigned By admin #}
         <div id="nfileoverlay" class="nfileoverlay">
             <a href="javascript:void(0)" class="closebtn" onclick="closefilenav()">&times;</a>
@@ -122,7 +119,7 @@
         {% if folders|length or files|length %}
             <div class="displays">{% if folders|length %}<p>Folders:</p>
                 <div class="files">{% for x in folders %}
-                    <div class="imgdisf" draggable="true"><a
+                    <div class="imgdisf" draggable="true" id="{{ x }}"><a
                             style="text-decoration:none; color: black; word-wrap: break-word;"
                             href="{{ url_for( 'network.folder_route', fol=x ) }}"><img
                             src="{{ url_for( 'static', filename='assets/fileicons/folder.png' ) }}"
@@ -141,14 +138,11 @@
                                 href="#"><img
                                 src="{{ url_for( 'static', filename='assets/fileicons/file.png' ) }}"
                                 alt="{{ x }}">
-                            <p class="displayname">{{ x }}</p>{# TODO: Fix this up so it displays the name of the file
-                             and the
-                        Proper Icon #}
+                            <p class="displayname">{{ x }}</p>
                         </a></div>
                     {% endfor %}</div>{% endif %}
             </div>
         {% else %}
-            {#TODO: Center this and make it nice and pretty#}
             {% if g.search %}
                 <P class="placeholdertext">Couldn't find that file or folder</P>
             {% else %}
@@ -157,27 +151,60 @@
         {% endif %}
         <div class="rmenuh" id="rmenu">
             <ul>
-                <li><span>Rename</span></li>
+                <li><span class="rename">Rename</span></li>
                 <li><span>Move To<i class="fas fa-arrow-right"></i></span></li>
                 <li>
                     <div class="spacer"></div>
                 </li>
-                <li><span id="download">Download</span></li>
+                <li><span class="download">Download</span></li>
                 <li>
                     <div class="spacer"></div>
                 </li>
-                <li><span>Remove</span></li>
+                <li><span class="remove">Remove</span></li>
             </ul>
+        </div>
+        <div class="rmenuh" id="rmenuf">
+            <ul>
+                <li><span class="rename" onclick="openrename()">Rename</span></li>
+                {#                <li><span class="move">Move To<i class="fas fa-arrow-right"></i></span></li>#}
+                <li>
+                    <div class="spacer"></div>
+                </li>
+                <li><span class="remove">Remove</span></li>
+            </ul>
+        </div>
+
+        <div id="renameoverlay" class="renameoverlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closerename()">&times;</a>
+            <div class="overlay-content">
+                <div class="renamebox">
+                    <form method="post" action="{{ url_for('network.rename_route') }}">
+                        <input type="text" name="rename" placeholder="Rename" required>
+                        <input type="submit" value="Rename" name="submit">
+                    </form>
+                </div>
+            </div>
         </div>
         <script>
             $(document).ready(function () {
                 $('div.imgdis').on('contextmenu', function (e) {
 
                     $(this).addClass("selected");
+                    console.log($(this).attr('id'));
                     document.getElementById("rmenu").className = "rmenus";
                     document.getElementById("rmenu").style.top = mouseY(event) + 'px';
                     document.getElementById("rmenu").style.left = mouseX(event) + 'px';
+                    document.getElementById("rmenuf").className = "rmenuh";
+                    window.event.returnValue = false;
 
+                });
+                $('div.imgdisf').on('contextmenu', function (e) {
+                    $(this).addClass("selected");
+                    console.log($(this).attr('id'));
+                    document.getElementById("rmenuf").className = "rmenus";
+                    document.getElementById("rmenuf").style.top = mouseY(event) + 'px';
+                    document.getElementById("rmenuf").style.left = mouseX(event) + 'px';
+                    document.getElementById("rmenu").className = "rmenuh";
                     window.event.returnValue = false;
 
                 });
@@ -185,6 +212,7 @@
 
             $(document).bind("click", function (event) {
                 document.getElementById("rmenu").className = "rmenuh";
+                document.getElementById("rmenuf").className = "rmenuh";
                 $('.selected').removeClass('selected')
             });
 
@@ -214,15 +242,35 @@
             }
 
             $(() => {
-                $('#download').bind('click', () => {
-                    $.getJSON($SCRIPT_ROOT + '{{ url_for('network.parse_route') }}', {
-                        selected: $('.selected').attr('id')
-                    }, (data) => {
-                        return (window.location.href = '{{ url_for('network.download_route') }}');
-                    });
-                    return false;
+                let id = $('.selected').attr('id');
+                $('.download').bind('click', () => {
+                    id = $('.selected').attr('id');
+                    parse(id, window.location.href = '{{ url_for('network.download_route') }}');
+
+                    id.removeClass('selected')
+                });
+                $('.rename').bind('click', () => {
+                    id = $('.selected').attr('id');
+                    parse(id, document.getElementById("rmenuf").className = "rmenuh");
+
+                    id.removeClass('selected')
+                });
+                $('.remove').bind('click', () => {
+                    id = $('.selected').attr('id');
+                    parse(id, window.location.href = '{{ url_for('network.remove_route') }}');
+
+                    id.removeClass('selected')
                 });
             });
+
+            function parse(id, callback) {
+                $.getJSON($SCRIPT_ROOT + '{{ url_for('network.parse_route') }}', {
+                    selected: id
+                }, (data) => {
+                    callback();
+                });
+                return false;
+            }
         </script>
     {% endblock %}
     {% block setting %}heheheheheheheh{% endblock %}
