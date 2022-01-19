@@ -2,7 +2,7 @@ from flask import json
 import os, sys
 
 # Apparently I can't import app into here so were doing this instead
-base_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
+base_dir = os.path.abspath(os.getcwd())
 
 
 def create_and_update(table, dataset, keys, values):
@@ -43,6 +43,7 @@ def read_data(table, dataset):
     Access the Json file and returns the dataset if it exists
     '''
     data = {}
+    print(base_dir)
     with open(os.path.join(base_dir, 'netdrive/util/data/data.json')) as j:
         data = json.load(j)
     if table in data or dataset in data[table]:
